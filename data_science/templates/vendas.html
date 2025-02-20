@@ -4,6 +4,24 @@
     <h3>Resumo de Vendas por Produto</h3>
     <p class="lead">Total vendido: R$ {{ total_vendas }}</p>
     <p>Produto mais vendido: <span class="badge bg-success">{{ top_produto }}</span></p>
+
+    <form class="mb-4">
+        <div class="row g-3">
+            <div class="col-auto">
+                <select class="form-select" name="mes">
+                    <option value="">Todos os meses</option>
+                    {% for mes in meses %}
+                        <option value="{{ mes }}" {% if mes == mes_selecionado %}selected{% endif %}>
+                            Mês {{ mes }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+            </div>
+        </div>
+    </form>
     
     <!-- Gráfico Plotly -->
     <div class="mt-4">
@@ -15,8 +33,4 @@
         {{ tabela|safe }}
     </div>
 
-    <!-- Tabela gerada pelo pandas -->
-    <div class="table-responsive">
-        {{ tabela|safe }}
-    </div>
 {% endblock %}
