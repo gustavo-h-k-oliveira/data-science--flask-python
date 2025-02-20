@@ -45,6 +45,7 @@ def analise_vendas():
                                 top_produto=resumo['sum'].idxmax(),
                                 total_vendas=resumo['sum'].sum().round(2),
                                 graph_html=graph_html)
+
     
     except FileNotFoundError:
         return "Erro: Arquivo 'vendas.csv' não encontrado na pasta data/."
