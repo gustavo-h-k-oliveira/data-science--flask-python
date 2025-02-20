@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>Resumo de Vendas por Produto</h3>
+    <p class="lead">Total vendido: R$ {{ total_vendas }}</p>
+    <p>Produto mais vendido: <span class="badge bg-success">{{ top_produto }}</span></p>
+    
+    <!-- Tabela gerada pelo pandas -->
+    <div class="table-responsive">
+        {{ tabela|safe }}
+    </div>
+{% endblock %}
